@@ -503,10 +503,11 @@ body {
   width: 100%;
 
   /* ✅ Hide scrollbar on all browsers */
-  scrollbar-width: none; 
+  scrollbar-width: none; /* Firefox */
+}
 
 .carousel-viewport::-webkit-scrollbar {
-  display: none; 
+  display: none; /* Chrome, Safari, Edge */
 }
 .carousel-track {
   display: flex;
@@ -876,7 +877,7 @@ body {
 .card:hover {
   background-color: #31a774;
   transform: translateY(-6px);
-  color: #ffffff; 
+  color: #ffffff; /* default text color on hover */
 }
 
 .card:hover h3,
@@ -994,6 +995,9 @@ body {
 .explore-button {
   display: inline-block;
   margin-top: 2rem;
+
+
+
   padding: 0.7rem 2rem;
   border: 2px solid #111;
   border-radius: 50%;
