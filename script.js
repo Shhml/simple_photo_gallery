@@ -1,0 +1,273 @@
+// ======================
+// Fullscreen Slideshow
+// ======================
+let currentSlide = 0;
+const slides = document.querySelectorAll('.fullscreen-slideshow img');
+const quotes = document.querySelectorAll('.slideshow-quote');
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+  quotes.forEach((quote, i) => {
+    quote.classList.toggle('active', i === index);
+  });
+}
+
+setInterval(() => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}, 5000);
+
+// ================
+// Lightbox Viewer
+// ================
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.querySelector('.lightbox-img');
+const closeBtn = document.querySelector('.close');
+
+closeBtn.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target !== lightboxImg) {
+    lightbox.style.display = 'none';
+  }
+});
+
+document.querySelectorAll('.category-item img').forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightbox.style.display = 'flex';
+  });
+});
+
+// ========================
+// Sticky Navbar on Scroll
+// ========================
+window.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar');
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ==========================
+// Light/Dark Mode Toggle
+// ==========================
+function toggleMode() {
+  document.body.classList.toggle('dark-mode');
+  const toggleButton = document.querySelector('.toggle-mode');
+  toggleButton.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+}
+
+// =============================
+// ✅ Carousel for Highlights Section
+// =============================
+const viewport = document.getElementById("carouselViewport");
+const nextBtn = document.getElementById("carouselNext");
+const prevBtn = document.getElementById("carouselPrev");
+const cards = document.querySelectorAll(".highlight-card");
+
+let currentIndex = 0;
+let visibleCards = 3;
+let scrollInterval = null;
+
+function scrollToIndex(index) {
+  const cardWidth = cards[0].offsetWidth + 24;
+  viewport.scrollTo({
+    left: index * cardWidth,
+    behavior: "smooth",
+  });
+}
+
+function nextScroll() {
+  currentIndex++;
+  if (currentIndex > cards.length - visibleCards) {
+    currentIndex = 0;
+  }
+  scrollToIndex(currentIndex);
+}
+
+function prevScroll() {
+  currentIndex--;
+  if (currentIndex < 0) {
+    currentIndex = cards.length - visibleCards;
+  }
+  scrollToIndex(currentIndex);
+}
+
+function startAutoScroll() {
+  scrollInterval = setInterval(nextScroll, 3000);
+}
+
+nextBtn.addEventListener("click", () => {
+  clearInterval(scrollInterval);
+  nextScroll();
+  startAutoScroll();
+});
+
+prevBtn.addEventListener("click", () => {
+  clearInterval(scrollInterval);
+  prevScroll();
+  startAutoScroll();
+});
+
+window.addEventListener("load", startAutoScroll);
+
+// ======================
+// Throttle Function for Scroll
+// ======================
+function throttle(fn, wait) {
+  let last = Date.now();
+  return function () {
+    if ((Date.now() - last) >= wait) {
+      fn();
+      last = Date.now();
+    }
+  };
+}
+
+// ======================
+// Parallax Scroll Effect
+// ======================
+function handleParallax() {
+  const parallax = document.querySelector('.parallax-achievements');
+  if (parallax) {
+    parallax.style.backgroundPositionY = window.pageYOffset * 0.5 + 'px';
+  }
+}
+
+window.addEventListener('scroll', handleParallax);
+
+// ======================
+// Animate .animate and .category-row
+// ======================
+function animateOnScroll() {
+  const elements = document.querySelectorAll('.animate');
+  elements.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add('visible');
+    }
+  });
+}
+
+function revealOnScroll() {
+  const rows = document.querySelectorAll('.category-row');
+  rows.forEach(row => {
+    const rect = row.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      row.classList.add('animate-visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', () => {
+  animateOnScroll();
+  revealOnScroll();
+});
+
+window.addEventListener('load', () => {
+  animateOnScroll();
+  revealOnScroll();
+});
+
+// ==========================
+// Discover All Categories Button
+// ==========================
+function discoverAll() {
+  alert("Redirecting to all categories...");
+}
+
+// ==========================
+// ✅ Counter Animation for Contest Cards
+// ==========================
+window.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll('.counter');
+
+  counters.forEach(counter => {
+    counter.innerText = "0";
+
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const current = +counter.innerText;
+      const increment = target / 100;
+
+      if (current < target) {
+        counter.innerText = `${Math.ceil(current + increment)}`;
+        setTimeout(updateCount, 20);
+      } else {
+        counter.innerText = target;
+      }
+    };
+
+    updateCount();
+  });
+});
+
+// ==========================
+// ✅ Counter Animation for Achievement Section
+// ==========================
+window.addEventListener("DOMContentLoaded", () => {
+  const achievements = document.querySelectorAll('.achievement-box .count');
+
+  const animateCounter = (el) => {
+    const update = () => {
+      const target = +el.getAttribute('data-target');
+      const current = +el.innerText.replace(/[^\d]/g, '');
+      const increment = target / 150;
+
+      if (current < target) {
+        el.innerText = Math.ceil(current + increment).toLocaleString();
+        setTimeout(update, 20);
+      } else {
+        el.innerText = target.toLocaleString();
+      }
+    };
+    update();
+  };
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  achievements.forEach(counter => observer.observe(counter));
+});
+
+// ==========================
+// ✅ Animate Timeline Items
+// ==========================
+const timelineItems = document.querySelectorAll('.timeline-item');
+
+const timelineObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-visible');
+      timelineObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.5
+});
+
+timelineItems.forEach(item => timelineObserver.observe(item));
+
+
+
+  
+    function toggleMode() {
+      document.body.classList.toggle('dark-mode');
+      const toggleBtn = document.querySelector('.toggle-mode');
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    }
+
+    window.addEventListener("scroll", () => {
+      const navbar = document.getElementById("navbar");
+      navbar.classList.toggle("scrolled", window.scrollY > 20);
+    });
+ 

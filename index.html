@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+
+  <nav class="top-nav" id="navbar">
+    <div class="nav-logo">Photo Gallery</div>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="index.html">Home</a>       
+        <a href="#about">About</a>
+        <a href="#contact">contact</a>
+      </div>
+      <button class="toggle-mode" onclick="toggleMode()"></button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="fullscreen-slideshow" id="home">
+    <div class="overlay-gradient"></div>
+    <img src="images/index/slide01.jpg" alt="Beach Sunset" class="slideshow-bg" />
+    <div class="slideshow-content fade-in">
+      <h1 class="slideshow-title">See the World Through Photos</h1>
+      <p class="slideshow-quote">“Capture the fleeting beauty of a vibrant world.”</p>
+      <div class="slideshow-buttons">
+        <a href="#gallery" class="btn">Explore Gallery</a>
+        <a href="#about" class="btn btn-outline">Discover More</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">⬇ Scroll down</div>
+  </section>
+
+
+
+<!-- family Section -->
+<section class="family-section animate">
+  <div class="text-content">
+    <h2><span class="dash">—</span> Family</h2>
+    <p class="lead"><span class="dropcap">O</span>ur photo gallery was born from a desire to preserve the quiet beauty of family life — What began as a simple passion grew into a visual archive of connection, love, and legacy. From shared laughter in a sunlit kitchen to the gentle grip of a child’s hand, every image is a testament to the bonds that shape us. Through our lens, we capture not just faces, but the emotions and stories that make a family whole."</p>
+    <p>This is more than photography — it’s memory, frozen in time.</p>
+    <a href="family.html" class="explore-button">Explore</a>
+    
+  </div>
+  <div class="image-stack">
+    <img src="images/index/family-main.jpg" alt="Andrea Di Maio" class="photo-top">
+    <span class="year-badge">1892</span>
+  </div>
+</section>
+
+
+<!-- Friendship Section -->
+<section class="friendship-section animate">
+  <div class="friendship-image-stack">
+    <img src="images/index/friends-main.jpg" alt="Friends photo" class="photo-top">
+    <span class="year-badge">Since 2005</span>
+  </div>
+  <div class="friendship-text-content">
+    <h2><span class="dash">—</span> Friendship</h2>
+    <p class="lead">
+      <span class="dropcap">T</span>rue friends are the people who make your soul smile.
+      Whether it’s laughter, support, or shared memories — friendship is timeless.hese bonds, whether formed by birth or chosen by heart, foster resilience, teach empathy, and nurture growth. In both our personal and collective journeys, the presence of family provides strength, stability, and purpose.
+    </p>
+    <p>Our gallery captures those candid connections that turn ordinary moments into extraordinary stories worth keeping.</p>
+    <a href="friends.html" class="explore-button">Explore</a>
+  </div>
+</section>
+
+
+
+
+
+<!-- ✅ ADDED: Contest Categories Section -->
+<section class="contest-categories animate">
+  <div class="container">
+    <div class="header">
+      <h2>Check <span class="blue">Out </span>Popular <span class="blue">Categories</span></h2>
+      <button class="btn-discover" onclick="alert('Redirecting to all categories...')">Discover All Categories</button>
+    </div>
+
+    <div class="card-grid">
+
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/50/image.png" class="icon" alt="icon"/>
+        <h3>Nature Pic</h3>
+        <div class="count"><span class="blue counter" data-target="126">0</span> Available</div>
+        <img src="images/index/nature1.jpg" class="preview" alt="nature"/>
+        <a href="nature.html" class="card-btn">Nature Pic</a>
+      </div>
+
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/50/camera.png" class="icon" alt="icon"/>
+        <h3>Random Pic</h3>
+        <div class="count"><span class="blue counter" data-target="116">0</span> Available</div>
+        <img src="images/index/random.jpg" class="preview" alt="random"/>
+        <a href="cars.html" class="card-btn">Random Pic</a>
+      </div>
+
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/50/user.png" class="icon" alt="icon"/>
+        <h3>Portrait Pic</h3>
+        <div class="count"><span class="blue counter" data-target="164">0</span> Available</div>
+        <img src="images/index/portraits1.jpg" class="preview" alt="portrait"/>
+        <a href="portraits.html" class="card-btn">Portrait Pic</a>
+      </div>
+
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/50/planet.png" class="icon" alt="icon"/>
+        <h3>Space Pic</h3>
+        <div class="count"><span class="blue counter" data-target="135">0</span> Available</div>
+        <img src="images/index/space1.jpg" class="preview" alt="space"/>
+        <a href="nature.html" class="card-btn">Space Pic</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+i
+
+
+<!-- CONTINUE ORIGINAL CONTENT -->
+<section class="parallax-gallery " id="gallery">
+    <h2>Explore by Category</h2>
+    
+    <div class="category-row">
+      <a href="family.html">
+        <img src="images/index/category-family.jpg" alt="Portraits">
+      </a>
+      <div class="category-text">
+        <h3>Family</h3>
+        <p>"Family isn’t just who you live with, it’s who you live for—unconditional love, unwavering support, shared memories, and unbreakable bonds. It’s laughter, strength, and belonging that distance can’t weaken and time can’t fade. Family is everything."</p>
+      </div>
+    </div>
+    
+
+    <div class="category-row reverse">
+      <a href="friends.html">
+        <img src="images/index/category-friends.jpg" alt="Portraits">
+      </a>
+      <div class="category-text">
+        <h3>Friends</h3>
+        <p>"Friendship isn’t about being inseparable. It’s about being apart and knowing nothing will ever change. True friends pick up right where they left off, no matter the time or distance. They offer loyalty, laughter, comfort, and a sense of home—always."</p>
+      </div>
+    </div>
+
+    <div class="category-row">
+      <a href="nature.html">
+        <img src="images/index/category-nature.jpg" alt="Nature">
+      </a>
+      <div class="category-text">
+        <h3>Nature</h3>
+        <p>"The earth speaks softly — in sunsets, rustling leaves, and waves against the shore. You just have to slow down long enough to listen. Nature whispers wisdom in stillness, reminding us to breathe, to be present, and to feel deeply alive."</p>
+      </div>
+    </div>
+
+    <div class="category-row reverse">
+      <a href="cities.html">
+        <img src="images/index/category-cities.jpg" alt="Cities">
+      </a>
+      <div class="category-text">
+        <h3>Cities</h3>
+        <p>"A city is more than buildings and lights — it’s a heartbeat. Fast, unpredictable, and full of people chasing purpose, creating meaning, and finding beauty in the everyday chaos. Every street has a story, every corner a secret, and every skyline a dream waiting to rise."</p>
+      </div>
+    </div>
+
+    <div class="category-row">
+      <a href="portraits.html">
+        <img src="images/index/category-portraits.jpg" alt="Portraits">
+      </a>
+      <div class="category-text">
+        <h3>Portraits</h3>
+        <p>"Every portrait captures more than appearance; it reveals presence — the strength, vulnerability, and history behind a single moment when a person chooses to simply be seen. In that stillness lies truth — the soul’s quiet language told through eyes, expression, and silence."</p>
+      </div>
+    </div>
+
+    <div class="category-row reverse">
+      <a href="cars.html">
+        <img src="images/index/category-cars.jpg" alt="Cars">
+      </a>
+      <div class="category-text">
+        <h3>Cars</h3>
+        <p>"Cars aren’t just machines — they’re memories on wheels. Of late-night drives, loud music, empty highways, and the freedom to go wherever your heart dares to lead. Each mile holds a story, each turn a choice, each journey a piece of who we are becoming.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ✅ Photo Highlights Carousel Section -->
+<section class="carousel-section animate shared-background">
+  <h2>Photo Highlights</h2>
+  <div class="carousel-container">
+    <button class="carousel-nav left" id="carouselPrev">❮</button>
+    <div class="carousel-viewport" id="carouselViewport">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="highlight-card"><img src="images/cars/car09.jpg" alt="1" /></div>
+        <div class="highlight-card"><img src="images/nature/nature13.jpg" alt="2" /></div>
+        <div class="highlight-card"><img src="images/cities/cities02.jpg" alt="3" /></div>
+        <div class="highlight-card"><img src="images/cars/car07.jpg" alt="4" /></div>
+        <div class="highlight-card"><img src="images/portraits/portraits04.jpg" alt="5" /></div>
+        <div class="highlight-card"><img src="images/nature/nature09.jpg" alt="6" /></div>
+        <div class="highlight-card"><img src="images/cars/car05.jpg" alt="7" /></div>
+        <div class="highlight-card"><img src="images/nature/nature10.jpg" alt="8" /></div>
+        <div class="highlight-card"><img src="images/cities/cities02.jpg" alt="9" /></div>
+        <div class="highlight-card"><img src="images/cars/car08.jpg" alt="10" /></div>
+        <div class="highlight-card"><img src="images/portraits/portraits01.jpg" alt="11" /></div>
+        <div class="highlight-card"><img src="images/nature/nature11.jpg" alt="12" /></div>
+      </div>
+    </div>
+    <button class="carousel-nav right" id="carouselNext">❯</button>
+  </div>
+</section>
+  
+
+<!-- Timeline Section -->
+<section class="timeline-section parallax-bg">
+  <h2 class="section-title">Visual Diary Timeline</h2>
+  <div class="timeline-container">
+    <div class="timeline-item">
+      <span class="dot" data-aos="zoom-in"></span>
+      <div class="content" data-aos="fade-right">
+        <h3>2019 – Got my First DSLR</h3>
+        <p>This was the beginning of my journey into photography. Every snap was a new story.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <span class="dot" data-aos="zoom-in"></span>
+      <div class="content" data-aos="fade-left">
+        <h3>2021 – Traveled to Leh Ladakh</h3>
+        <p>The mountains, the silence, the stars — this trip transformed how I see the world through my lens.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <span class="dot" data-aos="zoom-in"></span>
+      <div class="content" data-aos="fade-right">
+        <h3>2023 – Launched My Photo Gallery</h3>
+        <p>I finally built this site to preserve, share, and celebrate the captured memories of my journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ✅ Achievements Section -->
+<section class="achievement-section animate shared-background">
+  <div class="achievement-overlay">
+    <h2 class="achievement-title">Our Achievements</h2>
+    <div class="achievement-grid">
+      <div class="achievement-box">
+        <h3 class="count" data-target="1500">0</h3>
+        <p>Photos Uploaded</p>
+      </div>
+      <div class="achievement-box">
+        <h3 class="count" data-target="1320">0</h3>
+        <p>Cities Covered</p>
+      </div>
+      <div class="achievement-box">
+        <h3 class="count" data-target="495">0</h3>
+        <p>Natural Covered</p>
+      </div>
+      <div class="achievement-box">
+        <h3 class="count" data-target="1200">0</h3>
+        <p>Portraits Covered</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Testimonials Section -->
+<section class="testimonials-section animate ">
+  <h2 class="testimonials-title">What People Say</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <p class="testimonial-text">
+        "This gallery truly captures the emotion behind every photo. I was blown away by the nature and city collections!"
+      </p>
+      <h4 class="testimonial-author">— Ayesha R.</h4>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">
+        "Absolutely love the dark theme and how intuitive everything feels. It’s like a visual diary brought to life."
+      </p>
+      <h4 class="testimonial-author">— Rahul K.</h4>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">
+        "Clean layout, excellent lightbox experience. The portraits section is my favorite. Amazing work!"
+      </p>
+      <h4 class="testimonial-author">— Nisha M.</h4>
+    </div>
+  </div>
+</section>
+
+
+<section class="photo-note-section animate" data-aos="fade-up">
+  <div class="photo-note-container">
+    <h2>From the Photographer</h2>
+    <p>
+      “Every image in this gallery tells a silent story — a fleeting moment, a frozen emotion, 
+      or a breath of nature often missed in the rush of life. These photos are not just pixels — 
+      they are pieces of light, captured with patience and passion. Whether it’s a city skyline 
+      at dawn, a forest path wrapped in fog, or a candid smile, each shot is a memory worth keeping. 
+      Thank you for taking a moment to see the world through my lens.”
+    </p>
+    <span class="author-signature">— Shamil</span>
+  </div>
+</section>
+
+
+<!-- ✅ About Section -->
+<section id="about"class="hero animate shared-background">
+  <div class="hero-content">
+    <h1>About This Gallery</h1>
+    <p>
+      Welcome to our Photo Gallery — a space where moments turn into memories and every image tells a story. From breathtaking landscapes to heartfelt portraits, our collection is curated with passion and creativity.
+    </p>
+  </div>
+
+  <div class="about-section animate">
+    <div class="about-img">
+      <img src="images/index/category-portraits1.jpg" alt="Shamil">
+    </div>
+    <div class="about-text">
+      <h2>Hello, I’m Shamil</h2>
+      <p>This website is my digital photo diary. I built it to showcase different themes like Nature, Cities, and Portraits. Every photo has a story, and I hope you enjoy exploring them!</p>
+      <blockquote>“A photo is the pause button on life.”</blockquote>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ✅ Contact Section -->
+<section id="contact" class="contact-wrapper">
+  <div class="contact-section animate">
+  <h2>Contact Me</h2>
+  <form>
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+
+
+<!-- Keep Lightbox & Footer as-is -->
+<div class="lightbox" id="lightbox">
+  <span class="close">×</span>
+  <img class="lightbox-img" src="" alt="Lightbox Image">
+</div>
+
+<footer>
+  <p>© 2025 Photo Gallery. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
