@@ -271,3 +271,40 @@ timelineItems.forEach(item => timelineObserver.observe(item));
       navbar.classList.toggle("scrolled", window.scrollY > 20);
     });
  
+// ==========================
+
+
+// Initialize particles.js for the achievements section
+if (document.getElementById('particles-js')) {
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 80, density: { enable: true, value_area: 800 } },
+      color: { value: "#31a774" },
+      shape: { type: "circle" },
+      opacity: { value: 0.3 },
+      size: { value:6 },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#31a774",
+        opacity: 0.4,
+        width: 2.5
+      },
+      move: { enable: true, speed: 2 }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "grab" },
+        onclick: { enable: true, mode: "push" }
+      },
+      modes: {
+        grab: { distance: 140, line_linked: { opacity: 1 } },
+        push: { particles_nb: 4 }
+      }
+    },
+    retina_detect: true
+  });
+}
+
+  
