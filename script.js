@@ -282,7 +282,7 @@ if (document.getElementById('particles-js')) {
       color: { value: "#31a774" },
       shape: { type: "circle" },
       opacity: { value: 0.3 },
-      size: { value:6 },
+      size: { value:4 },
       line_linked: {
         enable: true,
         distance: 150,
@@ -307,4 +307,114 @@ if (document.getElementById('particles-js')) {
   });
 }
 
-  
+
+
+
+// particles.js config for Hero Section
+particlesJS("particles-hero", {
+  particles: {
+    number: {
+      value: 80,
+      density: {
+        enable: true,
+        value_area: 800
+      }
+    },
+    color: {
+      value: "#ffffff"
+    },
+    shape: {
+      type: "circle"
+    },
+    opacity: {
+      value: 0.5,
+      random: true
+    },
+    size: {
+      value: 3,
+      random: true
+    },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#ffffff",
+      opacity: 0.4,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 1.8,
+      direction: "none",
+      random: false,
+      straight: false,
+      out_mode: "out",
+      bounce: false
+    }
+  },
+  interactivity: {
+    detect_on: "canvas", // make sure interaction is on canvas
+    events: {
+      onhover: {
+        enable: true,
+        mode: "grab" // 👈 makes lines connect to cursor
+      },
+      onclick: {
+        enable: true,
+        mode: "push"
+      },
+      resize: true
+    },
+    modes: {
+      grab: {
+        distance: 200,
+        line_linked: {
+          opacity: 0.8
+        }
+      },
+      push: {
+        particles_nb: 4
+      }
+    }
+  },
+  retina_detect: true
+});
+if (document.getElementById('particles-js')) {
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 80, density: { enable: true, value_area: 800 } },
+      color: { value: "#31a774" },
+      shape: { type: "circle" },
+      opacity: { value: 0.3 },
+      size: { value:4 },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#31a774",
+        opacity: 0.4,
+        width: 2.5
+      },
+      move: { enable: true, speed: 2 }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "grab" },
+        onclick: { enable: true, mode: "push" }
+      },
+      modes: {
+        grab: { distance: 140, line_linked: { opacity: 1 } },
+        push: { particles_nb: 4 }
+      }
+    },
+    retina_detect: true
+  });
+}
+
+ AOS.init({
+    once: false,  // Keep animation on scroll, not just once
+    mirror: true  // Animate on scroll up as well
+  });
+
+swiper.on('slideChange', () => {
+  AOS.refresh();
+});
