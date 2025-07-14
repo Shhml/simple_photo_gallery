@@ -175,12 +175,16 @@ html {
     }
 
     .scroll-indicator {
-      position: absolute;
-      bottom: 20px;
-      font-size: 1rem;
-      animation: bounce 1.5s infinite;
-      opacity: 0.7;
-    }
+  position: absolute;
+  bottom: 20px;
+  left: 50%;                      /* Push to center */
+  transform: translateX(-50%);    /* Center align */
+  font-size: 1rem;
+  animation: bounce 1.5s infinite;
+  opacity: 0.7;
+  color: white;                   /* Optional: ensures visibility */
+}
+
 
     @keyframes bounce {
       0%, 100% { transform: translateY(0px); }
