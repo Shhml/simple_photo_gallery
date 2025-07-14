@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Photo Gallery</title>
   
-
+  
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
@@ -25,20 +25,29 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
   <section class="fullscreen-slideshow" id="home">
-    <div class="overlay-gradient"></div>
-    <img src="images/index/slide01.jpg" alt="Beach Sunset" class="slideshow-bg" />
-    <div class="slideshow-content fade-in">
-      <h1 class="slideshow-title">See the World Through Photos</h1>
-      <p class="slideshow-quote">“Capture the fleeting beauty of a vibrant world.”</p>
-      <div class="slideshow-buttons">
-        <a href="#gallery" class="btn">Explore Gallery</a>
-        <a href="#about" class="btn btn-outline">Discover More</a>
-      </div>
+  <!--  Particle canvas -->
+  <div id="particles-hero"></div>
+
+  <!--  Background image -->
+  <img src="images/index/nature26.jpg" alt="" class="slideshow-bg" />
+
+  <!--  Content -->
+  <div class="slideshow-content fade-in">
+    <h1 class="slideshow-title">See the World Through Photos</h1>
+    <p class="slideshow-quote">“Capture the fleeting beauty of a vibrant world.”</p>
+    <div class="slideshow-buttons">
+      <a href="#gallery" class="btn">Explore Gallery</a>
+      <a href="#about" class="btn btn-outline">Discover More</a>
     </div>
-    <div class="scroll-indicator">⬇ Scroll down</div>
-  </section>
+  </div>
+</section>
+
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">⬇ Scroll down</div>
+</section>
+
 
 
 
@@ -254,7 +263,7 @@
 
 
 <!-- Achievements Section with Particle Background -->
-<section class="achievement-section">
+<section class="achievement-section ">
   <!-- Particle Container -->
   <div id="particles-js"></div>
 
@@ -291,8 +300,8 @@
     <div class="swiper-wrapper testimonials-grid">
       
       <!-- Card 1 -->
-      <div class="swiper-slide testimonial-card">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg"  alt="User 1" style="width: 80px; border-radius: 50%; border: 3px solid #31a774; margin-bottom: 20px;">
+     <div class="swiper-slide testimonial-card" data-aos="fade-left" data-aos-delay="100">      
+      <img src="https://randomuser.me/api/portraits/women/44.jpg"  alt="User 1" style="width: 80px; border-radius: 50%; border: 3px solid #31a774; margin-bottom: 20px;">
         <p class="testimonial-text">“This gallery truly captures the emotion behind every photo. I was blown away by the nature and city collections!”</p>
         <div style="margin-top: 15px;">
           ⭐⭐⭐⭐⭐
@@ -301,7 +310,8 @@
       </div>
 
       <!-- Card 2 -->
-      <div class="swiper-slide testimonial-card">
+      <div class="swiper-slide testimonial-card" data-aos="fade-up" data-aos-delay="200">
+
         <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User 2" style="width: 80px; border-radius: 50%; border: 3px solid #31a774; margin-bottom: 20px;">
         <p class="testimonial-text">“Absolutely love the dark theme and how intuitive everything feels. It’s like a visual diary brought to life.”</p>
         <div style="margin-top: 15px;">
@@ -311,7 +321,8 @@
       </div>
 
       <!-- Card 3 -->
-      <div class="swiper-slide testimonial-card">
+      <div class="swiper-slide testimonial-card" data-aos="fade-right" data-aos-delay="300">
+
         <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User 3" style="width: 80px; border-radius: 50%; border: 3px solid #31a774; margin-bottom: 20px;">
         <p class="testimonial-text">“Amazing layout and experience. The portraits section is my favorite. Really impressed with the attention to detail.”</p>
         <div style="margin-top: 15px;">
@@ -447,8 +458,11 @@
     once: false     // triggers on every scroll, not just the first time
   });
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
