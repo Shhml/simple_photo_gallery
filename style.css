@@ -16,6 +16,32 @@ html {
 }
 /* Reset & Global */
 
+/* Particle canvas */
+#particles-hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Background image should be the deepest */
+.slideshow-bg {
+  z-index: -3;  /* changed from -2 to -3 */
+}
+
+/* Overlay stays in the middle */
+.overlay-gradient {
+  z-index: -2;
+}
+
+/* Content remains on top */
+.slideshow-content {
+  z-index: 1;
+}
+
+
     html {
       scroll-behavior: smooth;
     }
@@ -1232,7 +1258,6 @@ body {
 
 
 /* Testimonials Section */
-/* Testimonials Section */
 .testimonials-section {
   padding: 80px 20px;
   color: #ffffff;
@@ -1266,6 +1291,9 @@ body {
   transition: all 0.4s ease;
   overflow: hidden;
   z-index: 1;
+
+  /* ✨ Floating Animation */
+  animation: floatUpDown 6s ease-in-out infinite;
 }
 
 /* Hover Transform */
@@ -1315,6 +1343,16 @@ body {
   }
 }
 
+/* ✨ Floating Animation Keyframes */
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
 /* Image styling */
 .testimonial-img {
   width: 80px;
@@ -1343,6 +1381,7 @@ body {
   font-weight: 600;
   color: #31a774;
 }
+
 
 
 
