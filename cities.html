@@ -22,48 +22,49 @@
     }
 
     .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: #0d1e16;
       position: fixed;
       width: 100%;
       top: 0;
       left: 0;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       z-index: 1000;
-      background-color: #0d1e16;
       box-shadow: 0 0 10px #31a77488;
     }
 
     .nav-logo {
-      font-weight: 800;
-      font-size: 1.5rem;
+      font-size: 24px;
+      font-weight: bold;
       color: #31a774;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
+      gap: 20px;
     }
 
     .nav-links a {
-      margin-left: 1.5rem;
-      color: #ffffffcc;
+      color: white;
       text-decoration: none;
+      padding: 5px 0;
       font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: #31a774;
     }
 
     .toggle-mode {
-      margin-left: 1rem;
-      font-size: 1.3rem;
-      color: #31a774;
       background: none;
       border: none;
+      color: #31a774;
+      font-size: 1.3rem;
       cursor: pointer;
     }
 
@@ -143,39 +144,57 @@
     }
 
     @media (max-width: 768px) {
-      .nav-links a {
-        margin-left: 1rem;
-        font-size: 0.9rem;
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: black;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        border: 1px solid white;
+      }
+
+      .nav-links.show {
+        display: flex;
       }
 
       .category-gallery h2 {
         font-size: 2.2rem;
+      }
+
+      .nav-links a {
+        margin: 10px;
       }
     }
   </style>
 </head>
 <body>
 
-  <nav class="top-nav" id="navbar">
+  <nav class="top-nav">
     <div class="nav-logo">Photo Gallery</div>
-    <div class="nav-links">
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <div class="nav-links" id="nav-links">
       <a href="index.html">← Home</a>
       <a href="nature.html">Nature</a>
       <a href="cities.html">Cities</a>
       <a href="portraits.html">Portraits</a>
       <a href="cars.html">Cars</a>
-      <button class="toggle-mode" onclick="toggleMode()"></button>
+      <button class="toggle-mode">☾</button>
     </div>
   </nav>
 
   <section class="category-gallery">
     <h2>Cities Gallery</h2>
     <div class="grid-gallery">
-      <img src="images/cities/cities01.jpg" alt="City Skyline">
-      <img src="images/cities/cities02.jpg" alt="Urban Street">
-      <img src="images/cities/cities03.jpg" alt="City Bridge">
-      <img src="images/cities/cities04.jpg" alt="City Night">
-      <img src="images/cities/cities05.jpg" alt="City Night">
+      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" alt="City Skyline">
+      <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=800&q=80" alt="Urban Street">
+      <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80" alt="City Bridge">
+      <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=800&q=80" alt="City Night">
     </div>
   </section>
 
@@ -189,6 +208,13 @@
   </footer>
 
   <script>
+    const toggleButton = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggleButton.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
     const galleryImages = document.querySelectorAll('.grid-gallery img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.querySelector('.lightbox-img');
@@ -210,17 +236,6 @@
         lightbox.style.display = 'none';
       }
     });
-
-    function toggleMode() {
-      document.body.classList.toggle('dark-mode');
-      const toggleButton = document.querySelector('.toggle-mode');
-      toggleButton.textContent = document.body.classList.contains('dark-mode') ? 
-    }
-
-    window.onload = () => {
-      const toggleButton = document.querySelector('.toggle-mode');
-      toggleButton.textContent = document.body.classList.contains('dark-mode') ? 
-    };
   </script>
 
 </body>
