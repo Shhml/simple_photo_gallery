@@ -11,28 +11,102 @@
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+    }
 
-  <nav class="top-nav" id="navbar">
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: transparent;
+      position: relative;
+    }
+
+    .nav-logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 0;
+    }
+
+    /* Mobile View */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: black;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        border: 1px solid white;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+    }
+  </style>
+
+
+  <nav class="top-nav">
     <div class="nav-logo">Photo Gallery</div>
-    <div class="nav-right">
-      <div class="nav-links">
-        <a href="index.html">Home</a> 
-        <a href="#gallery">Gallery</a>      
-        <a href="#about">About</a>
-        <a href="#contact">contact</a>
-      </div>
-      <button class="toggle-mode" onclick="toggleMode()"></button>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </div>
   </nav>
 
-  <section class="fullscreen-slideshow" id="home">
-  <!--  Particle canvas -->
+  <script>
+    const toggleButton = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggleButton.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
+
+
+  
+
+<section class="fullscreen-slideshow" id="home">
+  <!-- Particle canvas -->
   <div id="particles-hero"></div>
 
-  <!--  Background image -->
+  <!-- Background image -->
   <img src="images/index/nature26.jpg" alt="" class="slideshow-bg" />
 
-  <!--  Content -->
+  <!-- Content -->
   <div class="slideshow-content fade-in">
     <h1 class="slideshow-title">See the World Through Photos</h1>
     <p class="slideshow-quote">“Capture the fleeting beauty of a vibrant world.”</p>
@@ -41,10 +115,8 @@
       <a href="#about" class="btn btn-outline">Discover More</a>
     </div>
   </div>
-</section>
 
-
-  <!-- Scroll Indicator -->
+  <!-- Scroll Indicator inside the section -->
   <div class="scroll-indicator">⬇ Scroll down</div>
 </section>
 
