@@ -54,11 +54,7 @@ window.addEventListener('scroll', () => {
 // ==========================
 // Light/Dark Mode Toggle
 // ==========================
-function toggleMode() {
-  document.body.classList.toggle('dark-mode');
-  const toggleButton = document.querySelector('.toggle-mode');
-  toggleButton.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-}
+
 
 // =============================
 // ✅ Carousel for Highlights Section
@@ -260,11 +256,7 @@ timelineItems.forEach(item => timelineObserver.observe(item));
 
 
   
-    function toggleMode() {
-      document.body.classList.toggle('dark-mode');
-      const toggleBtn = document.querySelector('.toggle-mode');
-      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-    }
+   
 
     window.addEventListener("scroll", () => {
       const navbar = document.getElementById("navbar");
@@ -418,3 +410,6 @@ if (document.getElementById('particles-js')) {
 swiper.on('slideChange', () => {
   AOS.refresh();
 });
+
+
+
