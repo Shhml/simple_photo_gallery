@@ -22,44 +22,40 @@
     }
 
     .top-nav {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 15px 20px;
+      background: transparent;
+      position: relative;
       z-index: 1000;
-      background-color: #0d1e16;
-      box-shadow: 0 0 10px #31a77488;
     }
 
     .nav-logo {
-      font-weight: 800;
-      font-size: 1.5rem;
+      font-size: 24px;
+      font-weight: bold;
       color: #31a774;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
+      gap: 20px;
     }
 
     .nav-links a {
-      margin-left: 1.5rem;
-      color: #ffffffcc;
+      color: white;
       text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: #31a774;
+      padding: 5px 0;
     }
 
     .toggle-mode {
-      margin-left: 1rem;
       font-size: 1.3rem;
       color: #31a774;
       background: none;
@@ -67,8 +63,31 @@
       cursor: pointer;
     }
 
+    /* Mobile View */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: black;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        border: 1px solid white;
+        padding: 10px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+    }
+
     .category-gallery {
-      margin-top: 120px;
+      margin-top: 100px;
       padding: 2rem;
     }
 
@@ -141,46 +160,33 @@
       font-size: 0.9rem;
       box-shadow: 0 -2px 8px rgba(49, 167, 116, 0.1);
     }
-
-    @media (max-width: 768px) {
-      .nav-links a {
-        margin-left: 1rem;
-        font-size: 0.9rem;
-      }
-
-      .category-gallery h2 {
-        font-size: 2.2rem;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <nav class="top-nav" id="navbar">
+  <nav class="top-nav">
     <div class="nav-logo">Photo Gallery</div>
-    <div class="nav-links">
-      <a href="index.html">← Home</a>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
       <a href="nature.html">Nature</a>
       <a href="cities.html">Cities</a>
       <a href="portraits.html">Portraits</a>
       <a href="cars.html">Cars</a>
-      <button class="toggle-mode" onclick="toggleMode()"></button>
+      <button class="toggle-mode" onclick="toggleMode()">☀️</button>
     </div>
   </nav>
 
   <section class="category-gallery">
-    <h2>Cars Gallery</h2>
-    <div class="grid-gallery">
-      <!-- Display images -->
-      <!-- Repeat for car01 to car33 -->
-      <!-- Just showing a few for brevity -->
-      <img src="images/cars/car01.jpg" alt="Car 1" />
-      <img src="images/cars/car02.jpg" alt="Car 2" />
-      <img src="images/cars/car03.jpg" alt="Car 3" />
-      <img src="images/cars/car04.jpg" alt="Car 4" />
-      <!-- Add remaining as needed... -->
-    </div>
-  </section>
+  <h2>Cars Gallery</h2>
+  <div class="grid-gallery">
+    <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=80" alt="Car 1" />
+    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80" alt="Car 3" />
+  </div>
+</section>
+
+
 
   <div class="lightbox" id="lightbox">
     <span class="close">×</span>
@@ -192,6 +198,13 @@
   </footer>
 
   <script>
+    const toggleButton = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggleButton.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
     const galleryImages = document.querySelectorAll('.grid-gallery img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.querySelector('.lightbox-img');
@@ -216,14 +229,7 @@
 
     function toggleMode() {
       document.body.classList.toggle('dark-mode');
-      const toggleButton = document.querySelector('.toggle-mode');
-      toggleButton.textContent = document.body.classList.contains('dark-mode') ? 
     }
-
-    window.onload = () => {
-      const toggleButton = document.querySelector('.toggle-mode');
-      toggleButton.textContent = document.body.classList.contains('dark-mode') ? 
-    };
   </script>
 
 </body>
