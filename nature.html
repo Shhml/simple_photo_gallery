@@ -21,37 +21,43 @@
       flex-direction: column;
     }
 
-    /* Navigation */
+    /* ========== New Responsive Navbar ========== */
     .top-nav {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 1000;
-      background-color: #0d1e16;
+      padding: 15px 20px;
+      background: #0d1e16;
       box-shadow: 0 0 10px #31a77488;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
     }
 
     .nav-logo {
-      font-weight: 800;
-      font-size: 1.5rem;
+      font-size: 24px;
+      font-weight: bold;
       color: #31a774;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
+      gap: 20px;
     }
 
     .nav-links a {
-      margin-left: 1.5rem;
+      color: white;
       text-decoration: none;
-      font-weight: 500;
-      color: #ffffffcc;
+      padding: 5px 0;
       transition: color 0.3s;
     }
 
@@ -59,7 +65,35 @@
       color: #31a774;
     }
 
-    /* Gallery Section */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #000;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 15px;
+        border: 1px solid white;
+        z-index: 999;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+        padding: 10px 0;
+      }
+    }
+
+    /* ========== Gallery Section ========== */
     .category-gallery {
       margin-top: 120px;
       padding: 2rem;
@@ -96,7 +130,7 @@
       box-shadow: 0 0 25px rgba(49, 167, 116, 0.5);
     }
 
-    /* Lightbox */
+    /* ========== Lightbox ========== */
     .lightbox {
       display: none;
       position: fixed;
@@ -126,7 +160,6 @@
       cursor: pointer;
     }
 
-    /* Footer */
     footer {
       margin-top: auto;
       text-align: center;
@@ -136,25 +169,15 @@
       font-size: 0.9rem;
       box-shadow: 0 -2px 8px rgba(49, 167, 116, 0.1);
     }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .nav-links a {
-        margin-left: 1rem;
-        font-size: 0.9rem;
-      }
-
-      .category-gallery h2 {
-        font-size: 2.2rem;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <nav class="top-nav" id="navbar">
+  <!-- Navbar -->
+  <nav class="top-nav">
     <div class="nav-logo">Photo Gallery</div>
-    <div class="nav-links">
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <div class="nav-links" id="nav-links">
       <a href="index.html">← Home</a>
       <a href="nature.html">Nature</a>
       <a href="cities.html">Cities</a>
@@ -163,48 +186,33 @@
     </div>
   </nav>
 
-  <section class="category-gallery">
-    <h2>Nature Gallery</h2>
-    <div class="grid-gallery">
-      <img src="images/nature/nature01.jpg" alt="Lake View">
-      <img src="images/nature/nature02.jpg" alt="Mountain Lake">
-      <img src="images/nature/nature03.jpg" alt="Forest Path">
-      <img src="images/nature/nature04.jpg" alt="Mountain Reflection">
-      <img src="images/nature/nature05.jpg" alt="Mountain Reflection">
-      <img src="images/nature/nature06.jpg" alt="Lake View">
-      <img src="images/nature/nature07.jpg" alt="Mountain Lake">
-      <img src="images/nature/nature08.jpg" alt="Forest Path">
-      <img src="images/nature/nature09.jpg" alt="Mountain Reflection">
-      <img src="images/nature/nature10.jpg" alt="Mountain Reflection">
-      <img src="images/nature/nature11.jpg" alt="Lake View">
-      <img src="images/nature/nature12.jpg" alt="Mountain Lake">
-      <img src="images/nature/nature13.jpg" alt="Forest Path">
-      <img src="images/nature/nature14.jpg" alt="Mountain Reflection">
-      <img src="images/nature/nature15.jpg" alt="Mountain Reflection">
-      <img src="images/nature/nature16.jpg" alt="Lake View">
-      <img src="images/nature/nature17.jpg" alt="Mountain Lake">
-      <img src="images/nature/nature18.jpg" alt="Forest Path">
-      <img src="images/nature/nature19.jpg" alt="Mountain Reflection">
-      <img src="images/nature/nature20.jpg" alt="Mountain Reflection">
-      <img src="images/nature/nature21.jpg" alt="Forest Path">
-      <img src="images/nature/nature22.jpg" alt="Forest Path">
-      <img src="images/nature/nature23.jpg" alt="Mountain Reflection">
-      <img src="images/nature/nature24.jpg" alt="Mountain Reflection">
-      <img src="images/nature/nature25.jpg" alt="Forest Path">
-      <img src="images/nature/nature26.jpg" alt="Forest Path">
-    </div>
-  </section>
+  <!-- Gallery -->
+ <section class="category-gallery">
+  <h2>Nature Gallery</h2>
+  <div class="grid-gallery">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Forest Waterfall">
+    <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=800&q=80" alt="River in Mountains">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Beach and Sunset">
+    <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80" alt="Foggy Landscape">
+    <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80" alt="Lake and Cabin">
+    <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=800&q=80" alt="Desert Mountains">
+  </div>
+</section>
 
+  <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
     <span class="close">×</span>
     <img class="lightbox-img" src="" alt="Lightbox Image">
   </div>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 My Visual Diary. All rights reserved.</p>
   </footer>
 
+  <!-- Scripts -->
   <script>
+    // Lightbox logic
     const galleryImages = document.querySelectorAll('.grid-gallery img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.querySelector('.lightbox-img');
@@ -225,6 +233,14 @@
       if (e.target !== lightboxImg) {
         lightbox.style.display = 'none';
       }
+    });
+
+    // Mobile Nav Toggle
+    const toggleButton = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggleButton.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
     });
   </script>
 </body>
