@@ -21,41 +21,71 @@
       flex-direction: column;
     }
 
+    /* ==== Top Nav ==== */
     .top-nav {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 1000;
-      background-color: #0d1e16;
+      padding: 15px 20px;
+      background: #0d1e16;
       box-shadow: 0 0 10px #31a77488;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
     }
 
     .nav-logo {
-      font-weight: 800;
-      font-size: 1.5rem;
+      font-size: 24px;
+      font-weight: bold;
       color: #31a774;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
+      gap: 20px;
     }
 
     .nav-links a {
-      margin-left: 1.5rem;
+      color: white;
       text-decoration: none;
+      padding: 5px 0;
       font-weight: 500;
-      color: #ffffffcc;
       transition: color 0.3s;
     }
 
     .nav-links a:hover {
       color: #31a774;
+    }
+
+    /* Mobile View */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #0f1f17;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        border: 1px solid #31a77455;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
     }
 
     .category-gallery {
@@ -132,23 +162,15 @@
       font-size: 0.9rem;
       box-shadow: 0 -2px 8px rgba(49, 167, 116, 0.1);
     }
-
-    @media (max-width: 768px) {
-      .nav-links a {
-        margin-left: 1rem;
-        font-size: 0.9rem;
-      }
-
-      .category-gallery h2 {
-        font-size: 2.2rem;
-      }
-    }
   </style>
 </head>
 <body>
-  <nav class="top-nav" id="navbar">
+
+  <nav class="top-nav">
     <div class="nav-logo">Photo Gallery</div>
-    <div class="nav-links">
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <div class="nav-links" id="nav-links">
       <a href="index.html">← Home</a>
       <a href="nature.html">Nature</a>
       <a href="cities.html">Cities</a>
@@ -159,16 +181,16 @@
   </nav>
 
   <section class="category-gallery">
-    <h2>Friends Gallery</h2>
-    <div class="grid-gallery">
-      <img src="images/friends/friends01.jpg" alt="Friends 1" />
-      <img src="images/friends/friends02.jpg" alt="Friends 2" />
-      <img src="images/friends/friends03.jpg" alt="Friends 3" />
-      <img src="images/friends/friends04.jpg" alt="Friends 4" />
-      <img src="images/friends/friends05.jpg" alt="Friends 5" />
-      <img src="images/friends/friends06.jpg" alt="Friends 6" />
-    </div>
-  </section>
+  <h2>Friends Gallery</h2>
+  <div class="grid-gallery">
+    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" alt="Friends 1" />
+    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="Friends 2" />
+    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" alt="Friends 3" />
+    <img src="https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?auto=format&fit=crop&w=800&q=80" alt="Friends 4" />
+<img src="https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=800&q=80" alt="Friends 5 - Replacement" />
+    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="Friends 6" />
+  </div>
+</section>
 
   <div class="lightbox" id="lightbox">
     <span class="close">×</span>
@@ -180,6 +202,14 @@
   </footer>
 
   <script>
+    // Mobile Menu Toggle
+    const toggleButton = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggleButton.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    // Lightbox functionality
     const galleryImages = document.querySelectorAll('.grid-gallery img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.querySelector('.lightbox-img');
@@ -202,5 +232,6 @@
       }
     });
   </script>
+
 </body>
 </html>
